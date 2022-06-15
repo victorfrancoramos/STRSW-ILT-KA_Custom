@@ -7,8 +7,8 @@ metadata:
     app: webapp
 spec:
   volumes:
-    name: html
-    emptyDir: { }
+    - name: html
+      emptyDir: { }
   containers:
   - name: backend
     image: debian
