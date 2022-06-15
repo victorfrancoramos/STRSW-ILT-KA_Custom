@@ -6,7 +6,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      tier: frontend
+      tier: nginx
   template:
     metadata:
       labels:
