@@ -16,8 +16,8 @@ spec:
       - name: html
         mountPath: /html
         command: ["/bin/sh", "-c"]
-          args:
-          - while true; do date >> /html/index.html; sleep 1; done;
+        args:
+        - while true; do date >> /html/index.html; sleep 1; done;
     resources:
       requests:
         memory: "64Mi"
