@@ -8,32 +8,32 @@ metadata:
 spec:
   volumes:
     - name: html
-      emptyDir: { }
+      emptyDir: {}
   containers:
-  - name: backend
-    image: debian
-    volumeMounts:
-      - name: html
-        mountPath: /html
-    command: ["/bin/sh", "-c"]
-    args:
-    - while true; do date >> /html/index.html; sleep 1; done;
-    resources:
-      requests:
-        memory: "64Mi"
-        cpu: "250m"
-      limits:
-        memory: "128Mi"
-        cpu: "500m"
-  - name: frontend
-    image: nginx
-    volumeMounts:
-      - name: html
-        mountPath: /usr/share/nginx/html
-    resources:
-      requests:
-        memory: "64Mi"
-        cpu: "250m"
-      limits:
-        memory: "128Mi"
-        cpu: "500m"
+    - name: backend
+      image: debian
+      volumeMounts:
+        - name: html
+          mountPath: /html
+      command: ["/bin/sh", "-c"]
+      args:
+        - while true; do date >> /html/index.html; sleep 1; done;
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+    - name: frontend
+      image: nginx
+      volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
