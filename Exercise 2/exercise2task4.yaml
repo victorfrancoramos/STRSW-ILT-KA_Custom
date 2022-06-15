@@ -10,15 +10,13 @@ spec:
     emptyDir: { }
   containers:
   - name: backend
-    image: nginx:latest
+    image: debian
     volumeMounts:
       - name: html
         mountPath: /html
         command: [ "/bin/sh", "-c" ]
         args:
         - while true; do date >> /html/index.html; sleep 1; done;
-    ports:
-    - containerPort: 80
     resources:
       requests:
         memory: "64Mi"
@@ -26,10 +24,11 @@ spec:
       limits:
         memory: "128Mi"
         cpu: "500m"
-  - name: debian
-    image: nginx:latest
-    ports:
-      - containerPort: 80
+  - name: frontend
+    image: nginx
+    volumeMounts:
+      - name: html
+        mountPath: /usr/share/nginx/html
     resources:
       requests:
         memory: "64Mi"
