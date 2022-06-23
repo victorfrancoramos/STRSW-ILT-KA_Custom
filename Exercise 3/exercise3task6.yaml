@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: controlSchedRun
+  name: control-sched-run
 spec:
   containers:
   - image: nginx
-    name: controlSchedRun
+    name: control-sched-run
     resources:
       requests:
         memory: "64Mi"
