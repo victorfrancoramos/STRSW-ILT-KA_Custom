@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         app: nginx
+        network: backend
     spec:
       nodeSelector:
         nodeType: edge
