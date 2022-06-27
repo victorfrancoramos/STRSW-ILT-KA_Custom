@@ -12,6 +12,7 @@ spec:
       labels:
         app: nginx
         network: backend
+        resources: tiny
     spec:
       nodeSelector:
         nodeType: edge
