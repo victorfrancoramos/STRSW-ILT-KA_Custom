@@ -10,7 +10,7 @@ spec:
       app: stateful
   serviceName: app
   updateStrategy:
-    type: OnDelete
+    type: RollingUpdate
   template:
     metadata:
       labels:
