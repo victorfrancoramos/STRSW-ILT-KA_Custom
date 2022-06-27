@@ -15,6 +15,8 @@ spec:
     metadata:
       labels:
         app: stateful
+        network: frontend
+        type: web-portal
     spec:
       containers:
       - name: nginx
