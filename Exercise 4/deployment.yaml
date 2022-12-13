@@ -1,30 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
-spec:
-  selector:
-    matchLabels:
-      app: myapp
-  template:
-    metadata:
-      labels:
-        app: myapp
-    spec:
-      containers:
-      - name: myapp
-        image: <Image>
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: <Port>
-
-metadata:
-  name: ds-example
+  name: nginx-deployment
+  labels:
+    app: nginx
 spec:
   revisionHistoryLimit: 3
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
@@ -32,13 +14,16 @@ spec:
     metadata:
       labels:
         app: nginx
-        network: backend
-        resources: tiny
     spec:
-#      nodeSelector:
-#        nodeType: edge
       containers:
       - name: nginx
-        image: nginx:stable-alpine
+        image: nginx:1.16.1
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         ports:
         - containerPort: 80
