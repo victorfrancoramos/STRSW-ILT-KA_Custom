@@ -35,8 +35,8 @@ spec:
         network: backend
         resources: tiny
     spec:
-      nodeSelector:
-        nodeType: edge
+#      nodeSelector:
+#        nodeType: edge
       containers:
       - name: nginx
         image: nginx:stable-alpine
